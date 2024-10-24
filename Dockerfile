@@ -12,15 +12,13 @@ RUN apt-get update && apt-get install -y python3 python3-pip
 RUN echo $(python3 -m site --user_base)
 
 # Copy requirements file
-COPY setup.py .
+COPY requirements.txt .
 
 # Update PATH for local bin
 ENV PATH="/home/root/.local/bin:${PATH}"
 
 # Install Python packages
-#RUN pip install --no-cache-dir -r requirements.txt --break-system-packages
-
-RUN python3 setup.py install
+RUN pip install --no-cache-dir -r requirements.txt --break-system-packages
 
 # Copy the rest of the application code
 COPY . .
