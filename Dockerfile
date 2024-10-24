@@ -20,7 +20,7 @@ ENV PATH="/home/root/.local/bin:${PATH}"
 # Install Python packages
 #RUN pip install --no-cache-dir -r requirements.txt --break-system-packages
 
-RUN python3 setup.py
+RUN python3 setup.py install
 
 # Copy the rest of the application code
 COPY . .
