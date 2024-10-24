@@ -8,6 +8,7 @@ import redis
 import time
 import config
 import json
+import sys
 
 app = Flask(__name__)
 app.config.from_object(config)
@@ -249,7 +250,7 @@ class Comet(object):
                     return dict(data=data, ts=time.time(), type='add_content')
 
 def run():
-    http_server = WSGIServer(('', config.PORT), app)
+    http_server = WSGIServer(('0.0.0.0', int(sys.argv[1])), app)
     http_server.serve_forever()
     #app.run(port=config.PORT)
 
