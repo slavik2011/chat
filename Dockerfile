@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y python3 python3-pip
 RUN echo $(python3 -m site --user_base)
 
 # Copy requirements file
-COPY requirements.txt .
+#COPY requirements.txt .
 
 # Update PATH for local bin
 ENV PATH="/home/root/.local/bin:${PATH}"
